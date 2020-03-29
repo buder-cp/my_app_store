@@ -1,10 +1,8 @@
 package com.example.wanegi.activitys;
 
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.example.wanegi.R;
 import com.example.wanegi.utils.UserUtils;
@@ -34,7 +32,7 @@ public class WelcomeActivity extends BaseActivity {
             public void run() {
 //                Log.e("WelcomeActivity", "当前线程为:" + Thread.currentThread());
 //                toMain();
-                if (isLogin) {
+                if (true) {
                     toMain();
                 } else {
                     toLogin();
