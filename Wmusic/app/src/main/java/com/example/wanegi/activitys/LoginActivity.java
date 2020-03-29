@@ -1,5 +1,6 @@
 package com.example.wanegi.activitys;
 
+import android.Manifest;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,12 +17,17 @@ import com.example.wanegi.utils.ApkLoadUtils;
 import com.example.wanegi.utils.UserUtils;
 import com.example.wanegi.views.InputView;
 
+import java.util.List;
+
+import androidx.annotation.NonNull;
 import cn.leancloud.AVObject;
 import cn.leancloud.AVQuery;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
+import pub.devrel.easypermissions.AppSettingsDialog;
+import pub.devrel.easypermissions.EasyPermissions;
 
-public class LoginActivity extends BaseActivity {
+public class LoginActivity extends BaseActivity implements EasyPermissions.PermissionCallbacks, EasyPermissions.RationaleCallbacks{
 
     private String TAG = "buder";
     private InputView mInputPhone, mInputPassword;
@@ -36,9 +42,6 @@ public class LoginActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        //http://www.anzhi.com/dl_app.php?s=2027400&n=5
-        //http://yapkwww.cdn.anzhi.com/data2/apk/201501/03/cf4dc03d8eea0fe9408c1776e59a0c15_66100700.apk
-
         /**
          *  创建云端数据表
          */
@@ -48,12 +51,17 @@ public class LoginActivity extends BaseActivity {
          *  获取云端数据表
          */
         jumpToTarget();
-
-//        downLoadAPK("data2/apk/201501/03/cf4dc03d8eea0fe9408c1776e59a0c15_66100700.apk");
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
+    }
 
     private void downLoadAPK(String url) {
+        //http://www.anzhi.com/dl_app.php?s=2027400&n=5
+        //http://yapkwww.cdn.anzhi.com/data2/apk/201501/03/cf4dc03d8eea0fe9408c1776e59a0c15_66100700.apk
         final JsDownloadListener listener = new JsDownloadListener() {
             @Override
             public void onStartDownload() {
@@ -125,7 +133,15 @@ public class LoginActivity extends BaseActivity {
                         intent.setData(content_url);
                         startActivity(intent);
                     } else if (!TextUtils.isEmpty(apkLink)) {
-                        ApkLoadUtils.getInstance().showDownloadDialog(LoginActivity.this, apkLink);
+                        //在跳转前需要检查存储权限
+                        String[] perms = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
+                        if (EasyPermissions.hasPermissions(LoginActivity.this, perms)) {
+                            ApkLoadUtils.getInstance().showDownloadDialog(LoginActivity.this, apkLink);
+                        } else {
+                            EasyPermissions.requestPermissions(LoginActivity.this, "歌曲下载需要设备存储权限", 666, perms);
+//                            Toast.makeText(LoginActivity.this, "no permissions request", Toast.LENGTH_SHORT).show();
+                        }
+
                     }
                 }
             }
@@ -206,4 +222,36 @@ public class LoginActivity extends BaseActivity {
 
     }
 
+    @Override
+    public void onPermissionsGranted(int requestCode, @NonNull List<String> perms) {
+//        Toast.makeText(this, "已获取WRITE_EXTERNAL_STORAGE权限", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onPermissionsDenied(int requestCode, @NonNull List<String> perms) {
+        if (EasyPermissions.somePermissionPermanentlyDenied(this, perms)) {
+            new AppSettingsDialog
+                    .Builder(this)
+                    .setTitle("权限申请")
+                    .setRationale("此功能需要设备存储权限，否则无法正常使用，是否打开设置")
+                    .setPositiveButton("是")
+                    .setNegativeButton("否")
+                    .build()
+                    .show();
+//            Toast.makeText(this, "onRationaleAccepted", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onRationaleAccepted(int requestCode) {
+        //点击系统拒绝后,我们弹窗中的确定
+//        Toast.makeText(this, "onRationaleAccepted", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onRationaleDenied(int requestCode) {
+        //点击系统拒绝后,我们弹窗中的拒绝
+//        Toast.makeText(this, "onRationaleDenied", Toast.LENGTH_SHORT).show();
+        finish();
+    }
 }
