@@ -4,9 +4,13 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -18,6 +22,8 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+
+import androidx.core.content.FileProvider;
 
 public class ApkLoadUtils {
     //  进度条
@@ -37,6 +43,10 @@ public class ApkLoadUtils {
 
     private static ApkLoadUtils mSingleton = null;
 
+    private Context mContext;
+
+    private File apkFile;
+
     private ApkLoadUtils() {
     }
 
@@ -54,6 +64,7 @@ public class ApkLoadUtils {
 
     public void showDownloadDialog(Context context, String url) {
         this.url = url;
+        this.mContext = context;
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("下载中");
         View view = LayoutInflater.from(context).inflate(R.layout.dialog_progress, null);
@@ -87,6 +98,8 @@ public class ApkLoadUtils {
 //                      文件保存路径
                         mSavePath = sdPath + "jikedownload";
 
+                        Log.e("puder", mSavePath);
+
                         File dir = new File(mSavePath);
                         if (!dir.exists()) {
                             dir.mkdir();
@@ -97,7 +110,7 @@ public class ApkLoadUtils {
                         InputStream is = conn.getInputStream();
                         int length = conn.getContentLength();
 
-                        File apkFile = new File(mSavePath, mVersion_name);
+                        apkFile = new File(mSavePath, mVersion_name);
                         FileOutputStream fos = new FileOutputStream(apkFile);
 
                         int count = 0;
@@ -139,18 +152,31 @@ public class ApkLoadUtils {
                     // 隐藏当前下载对话框
                     mDownloadDialog.dismiss();
                     // 安装 APK 文件
-                    installAPK();
+                    installApk();
             }
         }
 
         ;
     };
 
-    private void installAPK() {
-        File apkFile = new File(mSavePath, mVersion_name);
-        if (!apkFile.exists()) {
-            return;
+    private Uri uri;
+    public void installApk() {
+        if (apkFile.exists()) {
+            if (Build.VERSION.SDK_INT >= 24) {
+                uri = FileProvider.getUriForFile(mContext, "com.example.wanegi.fileprovider", apkFile);
+            } else {
+                uri = Uri.parse(String.valueOf(Uri.fromFile(apkFile)));
+            }
         }
+
+        Intent intent = new Intent();
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.setAction(Intent.ACTION_VIEW);
+        if ((Build.VERSION.SDK_INT >= 24)) {//判读版本是否在7.0以上
+            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        }
+        intent.setDataAndType(uri, "application/vnd.android.package-archive");
+        mContext.startActivity(intent);
     }
 
 }
