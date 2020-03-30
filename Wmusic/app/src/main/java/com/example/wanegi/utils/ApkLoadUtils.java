@@ -82,6 +82,8 @@ public class ApkLoadUtils {
         });
 
         mDownloadDialog = builder.create();
+        mDownloadDialog.setCancelable(false);
+        mDownloadDialog.setCanceledOnTouchOutside(false);
         mDownloadDialog.show();
 
         // 下载文件
