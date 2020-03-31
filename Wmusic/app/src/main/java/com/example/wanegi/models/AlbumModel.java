@@ -33,7 +33,7 @@ public class AlbumModel extends RealmObject {
     }
 
     public void setIntro(String intro) {
-        this.intro = intro;
+        this.intro = intro;System.out.println("hehe");;System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");
     }
 
     public String getAlbumId() {
@@ -41,7 +41,7 @@ public class AlbumModel extends RealmObject {
     }
 
     public void setAlbumId(String albumId) {
-        this.albumId = albumId;
+        this.albumId = albumId;System.out.println("hehe");;System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");
     }
 
     public String getName() {
@@ -49,7 +49,7 @@ public class AlbumModel extends RealmObject {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = name;System.out.println("hehe");;System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");
     }
 
     public String getPoster() {
@@ -57,7 +57,7 @@ public class AlbumModel extends RealmObject {
     }
 
     public void setPoster(String poster) {
-        this.poster = poster;
+        this.poster = poster;System.out.println("hehe");;System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");
     }
 
     public String getPlayNum() {
@@ -65,7 +65,7 @@ public class AlbumModel extends RealmObject {
     }
 
     public void setPlayNum(String playNum) {
-        this.playNum = playNum;
+        this.playNum = playNum;System.out.println("hehe");;System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");
     }
 
     public RealmList<MusicModel> getList() {
@@ -73,6 +73,6 @@ public class AlbumModel extends RealmObject {
     }
 
     public void setList(RealmList<MusicModel> list) {
-        this.list = list;
+        this.list = list;System.out.println("hehe");;System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");
     }
 }

@@ -24,7 +24,7 @@ public class DownloadModel {
     }
 
     public void setCurrentFileSize(long currentFileSize) {
-        this.currentFileSize = currentFileSize;
+        this.currentFileSize = currentFileSize;System.out.println("hehe");;System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");
     }
 
     public long getTotalFileSize() {
@@ -32,7 +32,7 @@ public class DownloadModel {
     }
 
     public void setTotalFileSize(long totalFileSize) {
-        this.totalFileSize = totalFileSize;
+        this.totalFileSize = totalFileSize;System.out.println("hehe");;System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");
     }
 
     @Override

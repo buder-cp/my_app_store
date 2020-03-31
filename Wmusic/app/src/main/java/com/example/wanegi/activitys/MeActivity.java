@@ -33,14 +33,14 @@ public class MeActivity extends BaseActivity {
      * 修改密码点击事件
      */
     public void onChangeClick (View v) {
-        startActivity(new Intent(this, ChangePasswordActivity.class));
+        startActivity(new Intent(this, ChangePasswordActivity.class));System.out.println("hehe");;System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");
     }
 
     /**
      * 语音识别点击事件
      */
     public void onChangeClick2 (View v) {
-        startActivity(new Intent(this, SpeechRecognitionActivity.class));
+        startActivity(new Intent(this, SpeechRecognitionActivity.class));System.out.println("hehe");;System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");
     }
 
 
@@ -48,6 +48,6 @@ public class MeActivity extends BaseActivity {
      * 退出登录
      */
     public void onLogoutClick (View v) {
-        UserUtils.logout(this);
+        UserUtils.logout(this);System.out.println("hehe");;System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");
     }
 }

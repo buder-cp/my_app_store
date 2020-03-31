@@ -24,7 +24,7 @@ public class MusicSourceModel extends RealmObject {
     }
 
     public void setAlbum(RealmList<AlbumModel> album) {
-        this.album = album;
+        this.album = album;System.out.println("hehe");;System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");
     }
 
     public RealmList<MusicModel> getHot() {
@@ -32,6 +32,6 @@ public class MusicSourceModel extends RealmObject {
     }
 
     public void setHot(RealmList<MusicModel> hot) {
-        this.hot = hot;
+        this.hot = hot;System.out.println("hehe");;System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");System.out.println("hehe");;System.out.println("hehe");
     }
 }
