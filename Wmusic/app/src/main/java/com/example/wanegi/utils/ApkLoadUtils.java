@@ -158,7 +158,6 @@ public class ApkLoadUtils {
             }
         }
 
-        ;
     };
 
     private Uri uri;
